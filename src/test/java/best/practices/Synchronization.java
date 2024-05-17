@@ -10,9 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Synchronization {
+    int timeInSecs = 5;
+    Duration duration = Duration.ofSeconds(timeInSecs);
     WebDriver driver;
     String elementExistsInDOM = "https://the-internet.herokuapp.com/dynamic_loading/1";
     String elementRenderedAfter = "https://the-internet.herokuapp.com/dynamic_loading/2";
@@ -46,19 +49,19 @@ public class Synchronization {
     @Test(expected = org.openqa.selenium.TimeoutException.class)
     public void explicitWaitFixesImplicitWaitIssues() {
         driver.get(elementExistsInDOM);
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     @Test
     public void explicitWaitWhenElementPresent() {
         driver.get(elementExistsInDOM);
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
     @Test
     public void correctSynchronization() {
         driver.get(elementRenderedAfter);
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
         WebElement startButton =
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("start"))).findElement(By.xpath("//button"));
         startButton.click();

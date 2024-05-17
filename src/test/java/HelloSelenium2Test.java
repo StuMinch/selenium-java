@@ -6,11 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class HelloSelenium2Test {
-    //This method will run once before all of the tests in our class
-    @BeforeClass
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
+
     @Test
     public void smarterTest()
     {

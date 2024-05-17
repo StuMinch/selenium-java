@@ -9,9 +9,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertTrue;
 
 public class Duplication {
+    int timeInSecs = 10;
+    Duration duration = Duration.ofSeconds(timeInSecs);
     WebDriver driver;
     @Before
     public void setup()
@@ -29,7 +33,7 @@ public class Duplication {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.className("btn_action")).submit();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
         boolean isDisplayed = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.id("inventory_filter_container"))).isDisplayed();
         assertTrue(isDisplayed);
@@ -40,7 +44,7 @@ public class Duplication {
         driver.findElement(By.id("user-name")).sendKeys("problem_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.className("btn_action")).submit();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
         boolean isDisplayed = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.id("inventory_filter_container"))).isDisplayed();
         assertTrue(isDisplayed);
@@ -66,7 +70,7 @@ public class Duplication {
         assertTrue(isDisplayed);
     }
     private boolean waitUntilDisplayed(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, duration);
         return wait.until(
                 ExpectedConditions.presenceOfElementLocated(locator)).isDisplayed();
     }

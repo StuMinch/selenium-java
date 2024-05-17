@@ -10,9 +10,6 @@ public class HelloSelenium3Test {
     @Test
     public void smarterTest()
     {
-        //Use WebDriverManager Maven package to download the correct version of
-        //a driver to automate Chrome browser
-        WebDriverManager.chromedriver().setup();
         //Set variable driver to an instance of ChromeDriver
         WebDriver driver = new ChromeDriver();
         //Open the URL
