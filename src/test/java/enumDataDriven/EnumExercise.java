@@ -11,16 +11,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class EnumExercise {
-    WebDriver driver;
-
-    private WebDriver getDriver() {
-        return new ChromeDriver();
-    }
+    WebDriver driver = new ChromeDriver();
 
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = getDriver();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");

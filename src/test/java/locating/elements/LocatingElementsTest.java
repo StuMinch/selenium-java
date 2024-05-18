@@ -1,7 +1,4 @@
 package locating.elements;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,10 +12,6 @@ import java.time.Duration;
 import static org.junit.Assert.assertTrue;
 
 public class LocatingElementsTest {
-    @BeforeClass
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
     int timeInSecs = 10;
     Duration duration = Duration.ofSeconds(timeInSecs);
 

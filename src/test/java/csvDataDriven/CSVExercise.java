@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVExercise {
-    WebDriver driver;
+    WebDriver driver = new ChromeDriver();
 
     public static String[][] readCsvFile() throws IOException {
         CSVReader csvReader = new CSVReader(new FileReader("src/test/java/csvDataDriven/Prices.csv"), ',', '"', 1);
@@ -39,14 +39,8 @@ public class CSVExercise {
         return dataFromCSV;
     }
 
-    private WebDriver getDriver() {
-        return new ChromeDriver();
-    }
-
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = getDriver();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");

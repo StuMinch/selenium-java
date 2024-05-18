@@ -1,6 +1,5 @@
 package testingClassData;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.After;
@@ -16,16 +15,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 @RunWith(JUnitParamsRunner.class)
 public class UserLoginTests {
 
-    WebDriver driver;
-
-    private WebDriver getDriver() {
-        return new ChromeDriver();
-    }
+    WebDriver driver = new ChromeDriver();
 
     @Before
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = getDriver();
         driver.get("https://www.saucedemo.com/");
     }
 

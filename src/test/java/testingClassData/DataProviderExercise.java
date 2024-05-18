@@ -15,16 +15,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(JUnitParamsRunner.class)
 public class DataProviderExercise {
-    WebDriver driver;
-
-    private WebDriver getDriver() {
-        return new ChromeDriver();
-    }
+    WebDriver driver = new ChromeDriver();
 
     @Before
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = getDriver();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVDataReader {
-    WebDriver driver;
+    WebDriver driver = new ChromeDriver();
 
     // We use throws IOException because this is the exception we might expect if the file is not found.
     // Alternatively, we can wrap all our code in a try-catch block, and cath the IOException.
@@ -46,14 +46,10 @@ public class CSVDataReader {
         return dataFromCSV;
     }
 
-    private WebDriver getDriver() {
-        return new ChromeDriver();
-    }
+
 
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = getDriver();
         driver.get("https://www.saucedemo.com/");
     }
 

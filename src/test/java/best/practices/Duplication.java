@@ -16,12 +16,7 @@ import static org.junit.Assert.assertTrue;
 public class Duplication {
     int timeInSecs = 10;
     Duration duration = Duration.ofSeconds(timeInSecs);
-    WebDriver driver;
-    @Before
-    public void setup()
-    {
-        driver = getDriver();
-    }
+    WebDriver driver = new ChromeDriver();
     @After
     public void cleanup()
     {
@@ -87,9 +82,4 @@ public class Duplication {
         driver.get("http://www.saucedemo.com");
     }
 
-    private WebDriver getDriver() {
-        //Telling the system where to find chromedriver. On Windows you also need to add .exe
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
-        return new ChromeDriver();
-    }
 }

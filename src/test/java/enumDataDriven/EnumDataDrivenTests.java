@@ -11,16 +11,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class EnumDataDrivenTests {
-    WebDriver driver;
-
-    private WebDriver getDriver() {
-        return new ChromeDriver();
-    }
+    WebDriver driver = new ChromeDriver();
 
     @BeforeEach
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = getDriver();
         driver.get("https://www.saucedemo.com/");
     }
 
